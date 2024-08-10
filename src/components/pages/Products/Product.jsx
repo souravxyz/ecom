@@ -1,4 +1,3 @@
-// Product.jsx
 import React from "react";
 import { productGetByIdQuaries } from "../../../service/useQueries";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/CartSlice";
 
 const Product = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const {

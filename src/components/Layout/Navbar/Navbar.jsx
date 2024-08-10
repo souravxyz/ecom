@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -13,7 +19,15 @@ export const Navbar = () => {
           <h3>ECOM</h3>
         </button>
       </div>
-      <ul className="navbar-links">
+      <div
+        className={`hamburger-menu ${isOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={`navbar-links ${isOpen ? "open" : ""}`}>
         <li>
           <Link to="/">Home</Link>
         </li>
